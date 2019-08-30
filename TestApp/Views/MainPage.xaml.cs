@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestApp.ViewModels;
 using Xamarin.Forms;
 
 namespace TestApp
@@ -16,17 +17,8 @@ namespace TestApp
         public MainPage()
         {
             InitializeComponent();
-        }
-        private async void LoginBtn_Clicked(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(UserEntry.Text) || string.IsNullOrEmpty(PasswordEntry.Text))
-            {
-                await DisplayAlert("Error", "Debe llenar los campos para loguearse", "ok");
-            }
-            else
-            {
-                await DisplayAlert("Aviso", "Bienvenido a la plataforma", "ok");
-            }
+            BindingContext = new UserViewModel();
         }
     }
+        
 }

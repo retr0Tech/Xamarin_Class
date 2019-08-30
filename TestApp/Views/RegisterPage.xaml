@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TestApp.Views.RegisterPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                Padding="25">
+                <Image
+                    Source="clipboard"
+                    HeightRequest="170"></Image>
+                <Grid
+                    Margin="10,0"
+                    VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                    Text="Usuario">
+                    </Label>
+
+                    <Entry
+                        x:Name="UserEntry"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Placeholder="Usuario">
+
+                    </Entry>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Password"
+                        >
+                    </Label>
+                    <Entry
+                        x:Name="PasswordEntry"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Placeholder="Contraseña"
+                        IsPassword="True">
+
+                    </Entry>
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Text="Confirm Password"
+                        >
+                    </Label>
+                    <Entry
+                        x:Name="ConfirmPasswordEntry"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Placeholder="Confirmar contraseña"
+                        IsPassword="True">
+
+                    </Entry>
+                </Grid>
+                <Button
+                    Margin="20"
+                    VerticalOptions="EndAndExpand"
+                    BackgroundColor="#1976D2"
+                    BorderRadius="23"
+                    HeightRequest="60"
+                    x:Name="RegisterBtn"
+                
+                    IsEnabled="True"
+                    Text="Register"
+                    FontSize="20"
+                    TextColor="White">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

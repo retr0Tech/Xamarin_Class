@@ -34,11 +34,12 @@
                     <Label
                         Grid.Row="0"
                         Grid.Column="0"
-                        Text="Usuario"
+                        Text="User"
                         VerticalOptions="Center">
                     </Label>
                     <Entry
                         x:Name="UserEntry"
+                        Text="{Binding User._User}"
                         Grid.Row="0"
                         Grid.Column="1"
                         Placeholder="Usuario">
@@ -46,11 +47,12 @@
                     <Label
                         Grid.Row="1"
                         Grid.Column="0"
-                        Text="Contraseña"
+                        Text="Password"
                         VerticalOptions="Center">
                     </Label>
                     <Entry
                         x:Name="PasswordEntry"
+                        Text="{Binding User.Password}"
                         Grid.Row="1"
                         Grid.Column="1"
                         IsPassword="true"
@@ -59,56 +61,36 @@
                     
                 </Grid>
                 
-                <StackLayout
-                    Margin="10,0"
-                    Orientation="Horizontal"
-                    VerticalOptions="CenterAndExpand">
-                    <Label
-                        HorizontalOptions="EndAndExpand"
-                        FontSize="15"
-                        FontAttributes="Bold"
-                        Text="Recordarme"
-                        VerticalOptions="Center">
-                    </Label>
-                    <Switch
-                        OnColor="#1976D2"
-                        x:Name="RememberMeSwitch"
-                        IsToggled="True"
-                        HorizontalOptions="CenterAndExpand">
-                    </Switch>
-                </StackLayout>
 
-                <StackLayout
-                    Margin="40,0"
+                <Button
+                    Margin="30"
+                    Command="{Binding clicked}"
+                    x:Name="LoginBtn"
+                    BackgroundColor="#1976D2"
+                    BorderRadius="23"
+                    HeightRequest="46"
+                    HorizontalOptions="FillAndExpand"
+                    IsEnabled="True"
+                    Text="Login"
+                    TextColor="White">
+                </Button>
                     
-                    VerticalOptions="CenterAndExpand">
-                    <Button
-                        x:Name="LoginBtn"
-                        Clicked="LoginBtn_Clicked"
-                        BackgroundColor="#1976D2"
-                        BorderRadius="23"
-                        HeightRequest="46"
-                        HorizontalOptions="FillAndExpand"
-                        IsEnabled="True"
-                        Text="Login"
-                        TextColor="White">
-                    </Button>
-                    <Button
-                        x:Name="RegisterBtn"
-                        BackgroundColor="#3F51B5"
-                        BorderRadius="23"
-                        HeightRequest="46"
-                        HorizontalOptions="FillAndExpand"
-                        IsEnabled="True"
-                        Text="Registrarse"
-                        TextColor="White">
-                    </Button>
-                </StackLayout>
-                <StackLayout
+                
+                <StackLayout Padding="40"
                     HorizontalOptions="Center"
                     Orientation="Horizontal"
                     VerticalOptions="EndAndExpand">
+                    <Label 
+                        x:Name="RegisterBtn"
 
+                        Text="Register"
+                        
+                        TextColor="blue">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding tapped}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
