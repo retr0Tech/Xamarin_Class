@@ -3,27 +3,33 @@ using System.Windows.Input;
 using TestApp.Models;
 using Xamarin.Forms;
 using TestApp.Views;
+using System.ComponentModel;
 
 namespace TestApp.ViewModels
 {
-    public class UserViewModel
+    public class UserViewModel : INotifyPropertyChanged
     {
-        
+        string _result;
         public ICommand clicked { get; set; }
         public User User { get; set; }
         public ICommand tapped { get; set; }
+        public string Result
+        {
+            get;set;
+        }
         public UserViewModel() {
             User = new User();
-
+            
             clicked = new Command(async() =>
             {
                 if (string.IsNullOrEmpty(User._User) || string.IsNullOrEmpty(User.Password))
                 {
-                    await App.Current.MainPage.DisplayAlert("Error", "Debe llenar los campos para loguearse", "ok");
+                    Result = "Debe llenar todos los campos";
                 }
                 else
                 {
                     await App.Current.MainPage.DisplayAlert("Aviso", $"Bienvenido a la plataforma {User._User}", "ok");
+                    await App.Current.MainPage.Navigation.PushAsync(new HomePage());
                 }
             });
 
@@ -32,11 +38,7 @@ namespace TestApp.ViewModels
                 await App.Current.MainPage.Navigation.PushAsync(new RegisterPage());
             });
         }
-
-        
-            
-
-        
+        public event PropertyChangedEventHandler PropertyChanged;
     }
     
 }

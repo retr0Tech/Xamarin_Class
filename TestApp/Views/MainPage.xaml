@@ -61,7 +61,12 @@
                     
                 </Grid>
                 
+                <Label
+                    HorizontalOptions="Center"
+                    Text="{Binding Result, Mode=TwoWay}"
+                    TextColor="red">
 
+                </Label>
                 <Button
                     Margin="30"
                     Command="{Binding clicked}"
