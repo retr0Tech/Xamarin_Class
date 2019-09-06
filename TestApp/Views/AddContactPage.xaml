@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TestApp.Views.AddContactPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Save"
+            Order="Primary"
+            Command="{Binding saveClicked}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                Padding="25">
+                <Button
+                    HorizontalOptions="Center"
+                    WidthRequest="70"
+                    HeightRequest="70"
+                    BackgroundColor="blue"
+                    CornerRadius="35"
+                    ImageSource="add"
+                    />
+
+                <Grid
+                    Margin="10,0"
+                    VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="9*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0"
+                           Grid.Row="0"
+                           Source="profile"
+                           HeightRequest="6"/>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Placeholder="First Name"
+                        Text="{Binding contact.FirstName}"/>
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Placeholder="Last Name"
+                        Text="{Binding contact.LastName}"/>
+                    <Image
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Source="company"
+                        HeightRequest="7"/>
+                    <Entry
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Placeholder="Company"
+                        Text="{Binding contact.Company}"/>
+                    <Image
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        Source="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/phone-512.png"
+                        HeightRequest="7"/>
+                    <Entry
+                        Placeholder="Phone"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Text="{Binding contact.Number}"/>
+                    <Picker
+                        Title="Mobile"
+                        Grid.Row="4"
+                        HorizontalOptions="StartAndExpand"
+                        WidthRequest="140"
+                        Grid.Column="1"/>
+                    <Image
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Source="envelope"
+                        HeightRequest="5"/>
+                    <Entry
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Placeholder="Email"
+                        HorizontalOptions="FillAndExpand"
+                        Text="{Binding contact.EmailAddress}"/>
+                    
+                    <Picker
+                        Grid.Column="1"
+                        Grid.Row="6"
+                        HorizontalOptions="StartAndExpand"
+                        WidthRequest="140"
+                        Title="Home"
+                        />
+                    <Label
+                    Grid.Column="1"
+                    Grid.Row="7"
+                    TextColor="blue"
+                    Text="More fields"/>
+                </Grid>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

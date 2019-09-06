@@ -3,7 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestApp.Views.HomePage">
   <!--Pages can be added as references or inline-->
-  <ContentPage Title="Home" />
+    
+  <ContentPage Title="Home" >
+   <ContentPage.ToolbarItems>
+       <ToolbarItem
+           Text="Add"
+           Order="Primary"
+           Priority="1"
+           Command="{Binding addClicked}"/>
+   </ContentPage.ToolbarItems>
+      <ListView ItemsSource="{Binding contact}"
+                HasUnevenRows="true"
+                ItemTapped="Listv_ItemTapped"
+                SelectedItem="{Binding SelectedContact}"
+                BackgroundColor= "white"
+                x:Name="listv">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1"
+                                       Text="{Binding FirstName}"
+                                       FontAttributes="Bold" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding Number}"
+                                       VerticalOptions="End"/>
+                            </Grid>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="More"
+                                          Command="{Binding Path=BindingContext.SeeElementCommand, Source={x:Reference listv}}"
+                                          CommandParameter="{Binding .}"/>
+                                <MenuItem
+                                    Text="Delete"
+                                    Command="{Binding Path=BindingContext.DeleteElementCommand, Source={x:Reference listv}}"
+                                    CommandParameter="{Binding .}"
+                                    IsDestructive="True"/>
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+  </ContentPage>
   <ContentPage Title="Tab 2" />
   <ContentPage Title="Tab 3" />
 </TabbedPage>

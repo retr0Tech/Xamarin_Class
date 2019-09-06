@@ -28,7 +28,6 @@ namespace TestApp.ViewModels
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("Aviso", $"Bienvenido a la plataforma {User._User}", "ok");
                     await App.Current.MainPage.Navigation.PushAsync(new HomePage());
                 }
             });
