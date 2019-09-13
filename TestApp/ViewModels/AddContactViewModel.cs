@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Input;
 using TestApp.Models;
 using TestApp.Views;
@@ -9,7 +10,7 @@ using Xamarin.Forms;
 
 namespace TestApp.ViewModels
 {
-    public class AddContactViewModel
+    public class AddContactViewModel : INotifyPropertyChanged
     {
         Contact contact { get; set; }
         
@@ -24,5 +25,6 @@ namespace TestApp.ViewModels
                 MessagingCenter.Send<AddContactViewModel, Contact>(this, "STUDENTID", contact);
             });
         }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
